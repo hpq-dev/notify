@@ -168,9 +168,10 @@ stock createNotifyTD(const playerid, index, i, const Float:static_x) {
 
 public OnPlayerConnect(playerid)
 {
-	
-	notifyIndex[playerid] = 0;
-
+	if(!IsPlayerNPC(playerid))
+	{
+		notifyIndex[playerid] = 0;
+	}
 	#if defined NT_OnPlayerConnect
 		return NT_OnPlayerConnect(playerid);
 	#else
